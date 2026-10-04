@@ -101,3 +101,6 @@ ul,ol{list-style:none}
   .hero-text{padding:22px}
 }
 @media(prefers-reduced-motion:reduce){.bg-track{animation:none}.typed:after{animation:none}html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}}
+
+   .mail-alt{margin-top:18px;font-size:.9rem;color:var(--muted)}
+   .mail-alt a{color:var(--teal);text-decoration:underline;margin:0 8px}
