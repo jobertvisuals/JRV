@@ -1,0 +1,39 @@
+/* bg.css: sliding pictures behind the Home section. Loads after style.css. */
+
+.hero { position: relative; overflow: hidden; isolation: isolate; }
+
+/* Keep the photo and the text above the moving pictures */
+.hero > .photo,
+.hero > .hero-text { position: relative; z-index: 2; }
+
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  display: flex; gap: 12px; padding: 0 12px;
+  pointer-events: none;
+}
+
+/* The soft cover that keeps your text easy to read.
+   Change the color or the number at the end (0 = see-through, 1 = solid). */
+.hero-bg::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: var(--bg-overlay, rgba(255, 255, 255, 0.86));
+}
+
+.bg-col { flex: 1; overflow: hidden; }
+
+.bg-track {
+  display: flex; flex-direction: column; gap: 12px;
+  animation: bg-up var(--dur, 70s) linear infinite;
+  will-change: transform;
+}
+.bg-col.down .bg-track { animation-name: bg-down; }
+
+.bg-track img { width: 100%; display: block; border-radius: 10px; }
+
+@keyframes bg-up   { from { transform: translateY(0); }    to { transform: translateY(-50%); } }
+@keyframes bg-down { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+
+/* People who turn off animations on their device get still pictures */
+@media (prefers-reduced-motion: reduce) {
+  .bg-track { animation: none; }
+}
