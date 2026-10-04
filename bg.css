@@ -16,7 +16,7 @@
    Change the color or the number at the end (0 = see-through, 1 = solid). */
 .hero-bg::after {
   content: ""; position: absolute; inset: 0; z-index: 1;
-  background: var(--bg-overlay, rgba(255, 255, 255, 0.86));
+  background: var(--bg-overlay, rgba(255, 255, 255, 0.64));
 }
 
 .bg-col { flex: 1; overflow: hidden; }
